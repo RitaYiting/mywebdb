@@ -1,6 +1,10 @@
 package com.lulu.mywebdb.data;
 import java.sql.*;
 public class DBProvider {
+    // 載入驅動
+    // 建立連線
+    // 執行查詢
+    // 處理結果
 
     public DBProvider(){
         try {
@@ -14,11 +18,12 @@ public class DBProvider {
         Statement stmt =null;
         ResultSet rs = null;
         try {
-            con = DriverManager.getConnection("jdbc:mariadb://localhost/classicomels","root","12345");
+            con = DriverManager.getConnection("jdbc:mariadb://localhost/classicmodels","root","12345");
             stmt = con.createStatement();
             rs = stmt.executeQuery(sql);
             return rs;
         } catch (SQLException e) {
+            System.out.println("連線異常" +  e.getMessage());
             return null;
         }
     }
