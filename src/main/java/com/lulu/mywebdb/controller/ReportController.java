@@ -45,7 +45,7 @@ public class ReportController {
                 o.setCoustomerName(rs.getString("customerNumber"));
                 orders.add(o);
             }
-            model.// Model還沒加
+            model.// Model還沒加..
         } catch (SQLException e) {
             System.out.println("ReportController 處理資料發生異常");
         }
