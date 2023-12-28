@@ -1,5 +1,5 @@
 package com.lulu.mywebdb.data;
-import com.lulu.mywebdb.model.Orders;
+import com.lulu.mywebdb.model.Orders_demo;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -19,11 +19,11 @@ public class DBProvider {
             System.err.println("驅動程式戴入失敗,請確認MariaDB-Java-Connector 是否有載入");
         }
     }
-    public List<Orders> getOrderData(String sql){
+    public List<Orders_demo> getOrderData(String sql){
         Connection con = null;
         Statement stmt =null;
         ResultSet rs = null;
-        ArrayList<Orders> orders = new ArrayList<>();
+        ArrayList<Orders_demo> orders = new ArrayList<>();
         try {
             con = DriverManager.getConnection("jdbc:mariadb://localhost/classicmodels","root","12345");
             stmt = con.createStatement();
@@ -31,7 +31,7 @@ public class DBProvider {
             //加入此段 造成近 method 變成專用功能
 
             while(rs.next()){
-                Orders o = new Orders();
+                Orders_demo o = new Orders_demo();
                 o.setOrderNumber(rs.getInt("orderNumber"));
                 o.setOrderDate(rs.getDate("orderDate"));
                 o.setRequiredDate(rs.getDate("requiredDate"));

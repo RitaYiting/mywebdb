@@ -1,16 +1,22 @@
 package com.lulu.mywebdb.mapper;
 
-import com.lulu.mywebdb.model.Orders_List;
+import com.lulu.mywebdb.model.Order;
+import org.springframework.jdbc.core.RowMapper;
 
-import javax.swing.tree.RowMapper;
-import javax.swing.tree.TreePath;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class OrderMapper  implements RowMapper<Orders_List> {
+public class OrderMapper implements RowMapper<Order> {
     @Override
-    public Orders_List mapRow(RestltSet rs, int rowNum) throws SQLException{
-        Orders_List o = new Orders_List();
-        o.setCustomerNumber("");
+    public Order mapRow(ResultSet rs, int rowNum) throws SQLException {
+        Order order = new Order();
+        order.setOrderNumber( rs.getInt("orderNumber"));
+        order.setOrderDate(rs.getDate("orderDate"));
+        order.setRequiredDate(rs.getDate("requiredDate"));
+        order.setShippedDate(rs.getDate("shippedDate"));
+        order.setComments(rs.getString("comments"));
+        order.setCustomerNumber(rs.getInt("customerNumber"));
+        order.setStatus(rs.getString("status"));
+        return  order;
     }
-
 }
