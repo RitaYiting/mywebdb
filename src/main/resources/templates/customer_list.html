@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+        <html lang="en" xmln=http//="www.Thymeleaf.org";>
+        <head>
+        <meta charset="UTF-8">
+        <title>客戶明細</title>
+    <style>
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+        #customers tr:hover {background-color: #9eff86;}
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<h1>客戶明細</h1>
+
+<table id="customers">
+    <tr>
+        <th>客戶編號</th>
+        <th>名字</th>
+        <th>電話</th>
+        <th>城市</th>
+        <th>國家</th>
+        <th>信用額度</th>
+    </tr>
+    <tr th:each = "cust :${custs}">
+        <td th:text="${cust.getCustomerNumber()}"></td>
+        <td th:text="${cust.getName()}"></td>
+        <td th:text="${cust.getPhone()}"></td>
+        <td th:text="${cust.getCity()}"></td>
+        <td th:text="${cust.getCountry()}"></td>
+        <td th:text="${cust.getCreditLimit()}"></td>
+    </tr>
+
+</table>
+</body>
+</html></title>
+</head>
+<body>
+
+</body>
+</html>
