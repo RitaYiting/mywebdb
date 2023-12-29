@@ -28,21 +28,19 @@ public class OrderController {
 
         model.addAttribute("orders", orderService.getOrderByCustomerNumber(cno2));
         return "orders_list";
-
     }
-    @GetMapping("/order_by_no")
+    @GetMapping("/order_by_no") //不可以單獨瀏覽order_by_no,會出現找不到ono,因為你沒透過"qono"給他參數
     public String getByCustomer(Model model, @RequestParam int ono) {
         model.addAttribute("orders", orderService.getOrderById(ono));
         return "orders_list";
     }
 
-
     @GetMapping("/qc")
     public String toQuery() {
-        return "Query_Customer";
+        return "query_customers";
     }
     @GetMapping("/qono")
     public String QueryByOrderno() {
-        return "Query_Orderno";
+        return "query_orders";
     }
 }
