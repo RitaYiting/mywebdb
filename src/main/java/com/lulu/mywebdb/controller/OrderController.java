@@ -39,11 +39,11 @@ public class OrderController {
 
     @GetMapping("/qc")
     public String toQuery() {
-        return "Query_Customer";
+        return "query_customers";
     }
     @GetMapping("/qono")
     public String QueryByOrderno() {
-        return "Query_Orderno";
+        return "query_orders";
     }
 }
 //OK
